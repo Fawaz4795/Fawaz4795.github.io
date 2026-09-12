@@ -1,13 +1,21 @@
 ---
+import '../styles/tokens.css';
+import ProjectSheet from '../components/ProjectSheet.astro';
+import { projects } from '../data/projects.ts';
 ---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Mohammed Fawaz</title>
+    <title>Mohammed Fawaz — Engineering Portfolio</title>
   </head>
-  <body style="font-family: sans-serif; padding: 4rem; max-width: 600px; margin: auto;">
-    <h1>Mohammed Fawaz</h1>
-    <p>Robotics & Automation Engineer — Edge AI, ROS2, BIM-integrated robotics.</p>
-    <p>Portfolio coming soon.</p>
+  <body>
+    <div class="page">
+      <header class="masthead">
+        <h1>MOHAMMED FAWAZ</h1>
+        <p>Robotics & Automation Engineering — Edge AI · Computer Vision · Mechanical Design</p>
+      </header>
+
+      {projects.map((p) => <ProjectSheet project={p} />)}
+    </div>
   </body>
 </html>

@@ -1,0 +1,48 @@
+:root {
+  --blueprint-bg: #0d2846;
+  --blueprint-bg-light: #12345f;
+  --line: #7fa8d9;
+  --line-bright: #cfe3fa;
+  --paper: #f4f1ea;
+  --ink: #0d2846;
+  --accent: #ff8a3d;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--blueprint-bg);
+  background-image:
+    linear-gradient(var(--blueprint-bg-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blueprint-bg-light) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--line-bright);
+  font-family: var(--font-body);
+  padding: 3rem 1.5rem;
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.masthead {
+  border: 2px solid var(--line);
+  padding: 1.5rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.masthead h1 {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  margin: 0 0 0.3rem;
+  letter-spacing: 1px;
+}
+
+.masthead p {
+  margin: 0;
+  color: var(--line);
+}
