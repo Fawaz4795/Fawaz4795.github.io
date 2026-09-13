@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectSheet from '../../components/ProjectSheet.astro';
+import { projects } from '../../data/projects.ts';
+
+export function getStaticPaths() {
+  return projects.map((p) => ({
+    params: { slug: p.slug },
+    props: { project: p },
+  }));
+}
+
+const { project } = Astro.props;
+---
+<Layout title={`${project.name} — Mohammed Fawaz`}>
+  <a href="/projects" class="back">← Back to Projects</a>
+  <div transition:name={`project-${project.slug}`}>
+    <ProjectSheet project={project} />
+  </div>
+</Layout>
+
+<style>
+  .back {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--line);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+  }
+  .back:hover { color: var(--accent); }
+</style>

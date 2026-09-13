@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Experience — Mohammed Fawaz">
+  <h1 class="section-title">EXPERIENCE</h1>
+
+  <div class="exp-header">
+    <span class="exp-role">Research & Development Intern — Robotics</span>
+    <span class="exp-org">AIRAT Systems LLP</span>
+    <span class="exp-period">5 January 2026 – 30 April 2026 · 16 weeks</span>
+  </div>
+
+  <p class="exp-intro">
+    Joined as an R&D intern at AIRAT Systems, an AI/Robotics/Automation firm working across
+    healthcare, agriculture, and consumer technology verticals. Owned two full projects end-to-end,
+    from literature review and CAD through fabrication, software integration, and validation.
+  </p>
+
+  <section class="phase">
+    <h2>Phase 1 — Humanoid Desktop Animatronic Robot (Weeks 1–8)</h2>
+    <p>
+      Started by auditing the existing prototype — a Raspberry Pi 4-based desktop companion robot
+      with visible mechanical instability and no headroom for real-time AI inference. Spent the
+      first week on literature review (servo-driven facial expression systems, PCA9685 control,
+      embedded AI platforms) and produced a formal gap analysis across structural, computational,
+      and software dimensions before writing a design brief for guide sign-off.
+    </p>
+    <p>
+      Redesigned the full mechanical shell in Fusion 360 — internal ribs for rigidity, reinforced
+      servo mounting zones, a dedicated low-CG compartment for the new compute board, ventilation
+      slots for thermal management, and internal cable channels. Migrated the compute platform from
+      Raspberry Pi 4 to an NVIDIA Jetson Orin Nano Super for CUDA-accelerated on-device inference,
+      then rebuilt the control software as a multithreaded Python architecture running face
+      tracking, speech-to-text, and servo actuation in parallel. Integrated the Groq API directly
+      for agentic tool-calling, bypassing heavier frameworks, which brought conversational latency
+      down to roughly 1.3 seconds.
+    </p>
+  </section>
+
+  <section class="phase">
+    <h2>Phase 2 — ArecaSort V1: AI-Driven Arecanut Sorting (Weeks 9–16)</h2>
+    <p>
+      Second project addressed a real agricultural bottleneck — arecanut grading was slow,
+      inconsistent, manual work. Began with market research into grading standards, then designed
+      the full machine in Fusion 360: feed hopper, conveyor, camera station, and a pneumatic sorting
+      mechanism using solenoid valves for millisecond-precision gate actuation.
+    </p>
+    <p>
+      Personally sourced physical arecanut samples across all four quality grades from a local
+      agricultural market, then built and ran a controlled photography rig (diffuse LED lighting,
+      fixed camera position, neutral background) to capture a consistent labelled dataset. Trained
+      and evaluated six architectures — YOLOv8, YOLOv10, EfficientDet, MobileNet-SSD V2, ResNet-50,
+      and a custom CNN — before selecting YOLOv10 with TensorRT FP16 quantization for deployment.
+      Final system reached ~91% sorting accuracy at 45 units/minute, validated with additional
+      lighting-robustness testing before handover.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 1.5rem; }
+  .exp-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .exp-role { font-weight: 700; font-size: 1.1rem; color: var(--line-bright); }
+  .exp-org { font-family: var(--font-mono); color: var(--accent); font-size: 0.9rem; }
+  .exp-period { font-family: var(--font-mono); color: var(--line); font-size: 0.8rem; }
+  .exp-intro { line-height: 1.7; margin-bottom: 2rem; color: var(--line-bright); }
+  .phase {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .phase h2 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--accent);
+    margin-top: 0;
+  }
+  .phase p { line-height: 1.7; color: var(--line-bright); }
+</style>

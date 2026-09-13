@@ -33,6 +33,7 @@ export const projects = [
     ],
     summary: "Full V2 redesign of a desktop companion robot originally built for elderly companionship. Redesigned the skeletal structure and housing in Fusion 360, engineered reinforced servo brackets to remove jitter, added active thermal venting and internal cable routing. Migrated compute from Raspberry Pi 4 to Jetson Orin Nano Super for CUDA-accelerated on-device inference, rebuilt the control software as multithreaded Python (parallel face tracking, STT, and I2C servo actuation), and integrated Groq API function-calling directly (bypassing LangChain) to cut conversational latency to ~1.3s.",
     stack: ["Fusion 360", "Raspberry Pi 4 → Jetson Orin Nano Super", "OpenCV DNN", "PCA9685", "Groq API", "Python (multithreaded)"],
+    image: "/images/jenny-1.jpg",
   },
   {
     id: "fish-sorting",
@@ -80,6 +81,7 @@ export const projects = [
     ],
     summary: "Virtual prototyping of two closed-loop control challenges in CoppeliaSim. Line-following used three grayscale sensors feeding a proportional controller for wheel velocities. Maze-solving used ultrasonic proximity sensors and a priority-based state machine implementing right-wall-following, including dead-end detection and 180° pivot backtracking.",
     stack: ["CoppeliaSim", "Lua"],
+    image: "/images/maze-topview.jpg",
   },
   {
     id: "line-follower-hw",
@@ -94,6 +96,7 @@ export const projects = [
     ],
     summary: "Physical build of a high-speed line follower: acrylic chassis, L298N H-bridge motor driver, Arduino Uno running a PD control loop (rather than bang-bang) on an IR sensor array, tuned through extensive physical testing for stable high-speed tracking through sharp curves. Control logic validated in CoppeliaSim (Lua) before hardware testing.",
     stack: ["Arduino Uno", "C/C++", "L298N", "CoppeliaSim"],
+    image: "/images/line-follower-hw.jpg",
   },
   {
     id: "scara",
@@ -109,6 +112,7 @@ export const projects = [
     ],
     summary: "Designed a 4-axis SCARA arm in SolidWorks (2 revolute + 1 prismatic + 1 revolute end-effector joint), derived D-H parameters, and ran forward kinematics and dynamic trajectory analysis in RoboAnalyzer to generate torque profiles for actuator sizing under simulated industrial motion cycles.",
     stack: ["SolidWorks", "RoboAnalyzer", "D-H Parameters"],
+    image: "/images/scara-cad.jpg",
   },
   {
     id: "rrr-manipulator",
@@ -123,6 +127,7 @@ export const projects = [
     ],
     summary: "Derived D-H parameters and homogeneous transformation matrices by hand for a 3-DOF RRR arm, then used MATLAB's symbolic toolbox to compute the Jacobian matrix and a joint-sweeping algorithm to plot the full reachable workspace, identifying singularities and the arm's operational envelope.",
     stack: ["MATLAB", "D-H Parameters", "Jacobian Analysis"],
+    image: "/images/rrr-physical.jpg",
   },
   {
     id: "fea-spring-gear",
@@ -137,6 +142,7 @@ export const projects = [
     ],
     summary: "Modeled a helical compression spring and an involute spur gear, then validated structural integrity in ANSYS Workbench with refined tetrahedral meshing at stress concentration points (root fillets, inner coils). Computed Von Mises stress distributions and safety factors against material yield strength.",
     stack: ["SolidWorks/Fusion 360", "ANSYS Workbench", "FEA"],
+    image: "/images/fea-spring.jpg",
   },
   {
     id: "n8n-agent",
@@ -151,5 +157,6 @@ export const projects = [
     ],
     summary: "Built an autonomous AI agent in n8n with persistent session memory. Designed a routing node that detects when a user query needs a numerical calculation and bypasses the LLM's internal reasoning entirely, invoking an external calculator API instead — guaranteeing mathematical precision while the LLM handles conversational formatting.",
     stack: ["n8n", "LLM APIs", "Webhooks"],
+    image: "/images/n8n-agent.jpg",
   },
 ];

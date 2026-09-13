@@ -1,0 +1,59 @@
+---
+import '../styles/tokens.css';
+import { ClientRouter } from 'astro:transitions';
+const { title = "Mohammed Fawaz — Portfolio", hideNav = false } = Astro.props;
+const path = Astro.url.pathname;
+const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="page">
+      {!hideNav && (
+        <nav class="blueprint-nav">
+          <a href="/" class:list={{ active: isActive('/') }}>About Me</a>
+          <a href="/experience" class:list={{ active: isActive('/experience') }}>Experience</a>
+          <a href="/projects" class:list={{ active: isActive('/projects') }}>Projects</a>
+          <a href="/certificates" class:list={{ active: isActive('/certificates') }}>Certificates</a>
+          <a href="/current-goals" class:list={{ active: isActive('/current-goals') }}>Current Goals</a>
+        </nav>
+      )}
+      <main transition:animate="fade">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .blueprint-nav {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .blueprint-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--line-bright);
+    text-decoration: none;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.5rem 1.1rem;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .blueprint-nav a:hover {
+    background: rgba(255, 138, 61, 0.15);
+    border-color: var(--accent);
+  }
+  .blueprint-nav a.active {
+    background: var(--accent);
+    color: var(--blueprint-bg);
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+</style>

@@ -1,21 +1,81 @@
 ---
-import '../styles/tokens.css';
-import ProjectSheet from '../components/ProjectSheet.astro';
-import { projects } from '../data/projects.ts';
+import Layout from '../layouts/Layout.astro';
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Mohammed Fawaz — Engineering Portfolio</title>
-  </head>
-  <body>
-    <div class="page">
-      <header class="masthead">
-        <h1>MOHAMMED FAWAZ</h1>
-        <p>Robotics & Automation Engineering — Edge AI · Computer Vision · Mechanical Design</p>
-      </header>
+<Layout title="Mohammed Fawaz — About" hideNav={true}>
+  <header class="masthead">
+    <h1>MOHAMMED FAWAZ</h1>
+    <p>Robotics & Automation Engineering — Edge AI · Computer Vision · Mechanical Design</p>
+  </header>
 
-      {projects.map((p) => <ProjectSheet project={p} />)}
-    </div>
-  </body>
-</html>
+  <section class="about">
+    <p>
+      Final-year Robotics and Automation Engineering student with hands-on experience across
+      computer vision, embedded systems, and mechanical design — taking projects from CAD concept
+      to deployed, working hardware. Recently completed an R&D internship at AIRAT Systems LLP,
+      delivering edge-AI hardware and an automated agricultural sorting machine.
+    </p>
+  </section>
+
+  <section class="nav-tiles">
+    <a href="/experience" class="nav-tile">
+      <span class="tile-name">Experience</span>
+    </a>
+    <a href="/projects" class="nav-tile">
+      <span class="tile-name">Projects</span>
+    </a>
+    <a href="/certificates" class="nav-tile">
+      <span class="tile-name">Certificates</span>
+    </a>
+    <a href="/current-goals" class="nav-tile">
+      <span class="tile-name">Current Goals</span>
+    </a>
+  </section>
+</Layout>
+
+<style>
+  .masthead {
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+  .masthead h1 {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    margin: 0 0 0.3rem;
+    letter-spacing: 1px;
+  }
+  .masthead p { margin: 0; color: var(--line); }
+
+  .about {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.75rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .nav-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+  }
+  .nav-tile {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.5rem 1rem;
+    text-decoration: none;
+    color: var(--line-bright);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  }
+  .nav-tile:hover {
+    background: rgba(255, 138, 61, 0.1);
+    transform: translateY(-3px);
+    border-color: var(--accent);
+  }
+  .nav-tile .tile-name { font-weight: 600; }
+</style>

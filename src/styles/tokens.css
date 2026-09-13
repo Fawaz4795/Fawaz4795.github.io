@@ -8,6 +8,7 @@
   --accent: #ff8a3d;
   --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
   --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --radius: 10px;
 }
 
 * { box-sizing: border-box; }
@@ -31,6 +32,7 @@ body {
 
 .masthead {
   border: 2px solid var(--line);
+  border-radius: var(--radius);
   padding: 1.5rem 2rem;
   margin-bottom: 3rem;
 }

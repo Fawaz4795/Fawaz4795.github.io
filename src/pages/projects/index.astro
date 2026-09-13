@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects.ts';
+---
+<Layout title="Projects — Mohammed Fawaz">
+  <h1 class="section-title">PROJECTS</h1>
+  <div class="grid">
+    {projects.map((p) => (
+      <a href={`/projects/${p.slug}`} class="tile" transition:name={`project-${p.slug}`}>
+        {p.image && <div class="tile-bg" style={`background-image: url(${p.image});`}></div>}
+        <div class="tile-overlay"></div>
+        <span class="tile-id">{p.id.toUpperCase()}</span>
+        <span class="tile-name">{p.name}</span>
+      </a>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .section-title {
+    font-family: var(--font-mono);
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+  .tile {
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--line-bright);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    min-height: 140px;
+    padding: 1rem;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  .tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+  .tile-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+  }
+  .tile:hover .tile-bg {
+    transform: scale(1.05);
+  }
+  .tile-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,40,70,0.92) 10%, rgba(13,40,70,0.25) 70%);
+  }
+  .tile-id {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+  }
+  .tile-name {
+    position: relative;
+    font-weight: 700;
+  }
+</style>
