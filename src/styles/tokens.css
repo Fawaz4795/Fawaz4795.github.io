@@ -28,6 +28,7 @@ body {
 .page {
   max-width: 900px;
   margin: 0 auto;
+  overflow-wrap: anywhere;
 }
 
 .masthead {
@@ -47,4 +48,71 @@ body {
 .masthead p {
   margin: 0;
   color: var(--line);
+}
+
+/* Shared responsive rules for all portfolio pages. */
+.page main,
+.page main :is(.metric, .pipe-step, .tag, .tile) {
+  min-width: 0;
+}
+
+.page img,
+.page video {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .page main :is(.masthead, .about, .phase, .exp-header, .sheet) {
+    padding: 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .page main .masthead h1 {
+    font-size: clamp(1.35rem, 5.5vw, 1.8rem);
+    line-height: 1.25;
+  }
+
+  .page main .section-title {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+
+  .page main .grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+    gap: 0.85rem;
+  }
+
+  .page main .tile {
+    min-height: 160px;
+  }
+
+  .page main .metrics {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .page main .metric-value {
+    font-size: 1.1rem;
+  }
+
+  .page main .tb-split {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .page main :is(.pipe-step, .tag) {
+    max-width: 100%;
+  }
+
+  .page main .back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
