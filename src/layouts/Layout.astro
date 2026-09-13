@@ -44,9 +44,11 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
     border: 1.5px solid var(--line);
     border-radius: var(--radius);
     padding: 0.5rem 1.1rem;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   }
-  .blueprint-nav a:hover {
+  .blueprint-nav a:hover,
+  .blueprint-nav a:focus-visible {
+    transform: translateY(-4px);
     background: rgba(255, 138, 61, 0.15);
     border-color: var(--accent);
   }
@@ -55,5 +57,14 @@ const isActive = (href) => (href === '/' ? path === '/' : path.startsWith(href))
     color: var(--blueprint-bg);
     border-color: var(--accent);
     font-weight: 700;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .blueprint-nav a {
+      transition: none;
+    }
+    .blueprint-nav a:hover,
+    .blueprint-nav a:focus-visible {
+      transform: none;
+    }
   }
 </style>
