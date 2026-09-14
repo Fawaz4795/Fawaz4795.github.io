@@ -38,6 +38,9 @@ const certificates = [
   <div class="certificates">
     {certificates.map((certificate) => (
       <article class="certificate" aria-labelledby={certificate.slug}>
+        <a class="preview" href={`/certificates/${certificate.slug}.pdf`} target="_blank" rel="noopener noreferrer" aria-label={`View ${certificate.title} certificate (PDF, opens in a new tab)`}>
+          <img src={`/certificates/${certificate.slug}.jpg`} alt={`${certificate.title} certificate awarded to Mohammed Fawaz`} loading="lazy" />
+        </a>
         <div class="content">
           <p class="issuer">{certificate.issuer}</p>
           <h2 id={certificate.slug}>{certificate.title}</h2>
@@ -59,8 +62,10 @@ const certificates = [
   .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 1rem; }
   .intro { color: var(--line); line-height: 1.6; margin-bottom: 2rem; }
   .certificates { display: grid; gap: 1.5rem; }
-  .certificate { display: grid; grid-template-columns: minmax(0, 1fr); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--blueprint-bg); transition: transform 0.25s ease, border-color 0.25s ease; }
+  .certificate { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--blueprint-bg); transition: transform 0.25s ease, border-color 0.25s ease; }
   .certificate:hover, .certificate:focus-within { border-color: var(--accent); }
+  .preview { display: flex; align-items: center; justify-content: center; padding: 1rem; background: var(--paper); }
+  .preview img { display: block; width: 100%; height: auto; }
   .content { min-width: 0; padding: 1.5rem; }
   .issuer { color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; margin: 0 0 0.75rem; }
   h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 0.75rem; }
