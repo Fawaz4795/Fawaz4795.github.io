@@ -4,39 +4,65 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Mohammed Fawaz — About">
   <header class="masthead">
     <h1>MOHAMMED FAWAZ</h1>
-    <p>Robotics & Automation Engineering — Edge AI · Computer Vision · Mechanical Design</p>
+    <p>Robotics and Automation Engineering</p>
   </header>
 
-  <section class="about">
+  <section class="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">About Me</h2>
     <p>
-      Final-year Robotics and Automation Engineering student with hands-on experience across
-      computer vision, embedded systems, and mechanical design — taking projects from CAD concept
-      to deployed, working hardware. Recently completed an R&D internship at AIRAT Systems LLP,
-      delivering edge-AI hardware and an automated agricultural sorting machine.
+      I am a final-year Robotics and Automation Engineering student at Sahyadri College
+      of Engineering &amp; Management, affiliated with Visvesvaraya Technological University.
+      My work focuses on building robotic systems that bring mechanical design, embedded
+      control, and computer vision together.
     </p>
+    <p>
+      During my R&amp;D internship at AIRAT Systems LLP, I worked on a desktop animatronic
+      robot and the ArecaSort V1 grading machine. My responsibilities included CAD design
+      and prototype assembly, preparing image datasets, and integrating control software
+      with the hardware. For the animatronic robot, I redesigned the enclosure and servo
+      mounts, supported the migration from Raspberry Pi to NVIDIA Jetson, and developed
+      Python software to run face tracking, speech processing, and servo control concurrently.
+    </p>
+    <p>
+      I also led a student team developing an automated fish sorting and grading system.
+      I handled the SolidWorks assembly model and coordinated fabrication, then worked on
+      the YOLOv8 detection model and Raspberry Pi integration. My other projects cover
+      mobile robot navigation, line-following control, manipulator kinematics, and finite
+      element analysis of mechanical components.
+    </p>
+    <p>
+      I am interested in robotics, automation, and R&amp;D roles where I can contribute to
+      mechanical development and system integration. I enjoy the detailed work of checking
+      component fit, tuning control behaviour, and tracing faults between software and hardware.
+    </p>
+  </section>
+
+  <section class="about" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Technical Experience</h2>
+    <dl>
+      <div><dt>Mechanical design</dt><dd>SolidWorks and Fusion 360 for parts, assemblies, enclosures, and fabrication. FDM printing and prototype assembly.</dd></div>
+      <div><dt>Embedded systems</dt><dd>Arduino, Raspberry Pi, and NVIDIA Jetson. Python and C/C++ control software, sensor integration, and I2C servo control.</dd></div>
+      <div><dt>Computer vision</dt><dd>OpenCV, YOLOv8 and YOLOv10, dataset annotation, model evaluation, and TensorRT deployment.</dd></div>
+      <div><dt>Simulation and analysis</dt><dd>ROS and Gazebo for navigation studies, CoppeliaSim for control development, MATLAB and RoboAnalyzer for kinematics, and ANSYS Workbench for stress analysis.</dd></div>
+    </dl>
+    <a class="project-link" href="/projects">View engineering projects →</a>
   </section>
 </Layout>
 
 <style>
-  .masthead {
-    border: 2px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-  }
-  .masthead h1 {
-    font-family: var(--font-mono);
-    font-size: 1.8rem;
-    margin: 0 0 0.3rem;
-    letter-spacing: 1px;
-  }
+  .masthead { border: 2px solid var(--line); border-radius: var(--radius); padding: 1.5rem 2rem; margin-bottom: 2rem; }
+  .masthead h1 { font-family: var(--font-mono); font-size: 1.8rem; margin: 0 0 0.3rem; letter-spacing: 1px; }
   .masthead p { margin: 0; color: var(--line); }
-
-  .about {
-    border: 1.5px solid var(--line);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.75rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
+  .about { border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.75rem; line-height: 1.75; margin-bottom: 2rem; }
+  h2 { font-family: var(--font-mono); font-size: 1.1rem; margin: 0 0 1.25rem; }
+  .about p { margin: 0 0 1rem; }
+  .about p:last-child { margin-bottom: 0; }
+  dl { margin: 0; }
+  dl div { display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px dashed var(--line); }
+  dt { font-weight: 600; color: var(--accent); }
+  dd { margin: 0; }
+  .project-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; color: var(--line-bright); text-underline-offset: 4px; }
+  .project-link:hover { color: var(--accent); }
+  .project-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (max-width: 600px) { dl div { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; } }
 </style>

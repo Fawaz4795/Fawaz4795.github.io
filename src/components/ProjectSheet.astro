@@ -37,7 +37,22 @@ const { project } = Astro.props;
     ))}
   </div>
 
-  <p class="summary">{project.summary}</p>
+  <div class="summary">
+    {project.summary.split('\n\n').map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+
+  {project.gallery?.length > 0 && (
+    <section class="project-gallery" aria-label="Project images">
+      {project.gallery.map((image) => (
+        <figure>
+          <a href={image.src} target="_blank" rel="noopener noreferrer" aria-label={`${image.caption} Open full-size image in a new tab.`}>
+            <img src={image.src} alt={image.caption} loading="lazy" decoding="async" />
+          </a>
+          <figcaption>{image.caption}<span>Source: {image.source}</span></figcaption>
+        </figure>
+      ))}
+    </section>
+  )}
 
   <div class="stack">
     {project.stack.map((s) => <span class="tag">{s}</span>)}
@@ -121,6 +136,16 @@ const { project } = Astro.props;
     flex-wrap: wrap;
     gap: 0.4rem;
   }
+  .summary p { margin: 0 0 1rem; }
+  .project-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 1.75rem 0; }
+  .project-gallery figure { min-width: 0; margin: 0; }
+  .project-gallery figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .project-gallery a { display: flex; align-items: center; justify-content: center; background: var(--paper); border-radius: 6px; overflow: hidden; min-height: 180px; }
+  .project-gallery a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .project-gallery img { display: block; width: 100%; height: auto; max-height: 480px; object-fit: contain; }
+  .project-gallery figcaption { padding-top: 0.65rem; font-size: 0.85rem; line-height: 1.5; }
+  .project-gallery figcaption span { display: block; color: var(--line); font-size: 0.75rem; margin-top: 0.25rem; }
+  @media (max-width: 600px) { .project-gallery { grid-template-columns: minmax(0, 1fr); } }
   .tag {
     font-family: var(--font-mono);
     font-size: 0.7rem;
