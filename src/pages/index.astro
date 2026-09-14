@@ -9,10 +9,10 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="about" aria-labelledby="about-heading">
     <h2 id="about-heading">About Me</h2>
-    <p>I am a Robotics and Automation Engineering undergraduate at Sahyadri College of Engineering and Management, with graduation expected in October 2026. My work combines mechanical design with embedded control and computer vision.</p>
-    <p>During my R&amp;D internship at AIRAT Systems LLP in Karnataka from January to June 2026, I worked on a desktop animatronic robot and the ArecaSort V1 grading machine. For the robot, I developed the mechanical structure from an open-source model, designed the base and housing in SolidWorks and Fusion 360, and configured Raspberry Pi 4 and NVIDIA Jetson hardware. I developed multithreaded Python software for face tracking, speech-to-text processing, and servo control.</p>
-    <p>For ArecaSort V1, I led the initial mechanical design and prepared a dataset covering four arecanut quality grades. I evaluated vision models, optimised YOLOv10 with TensorRT FP16, and tested the mechanical sorting mechanism using Raspberry Pi 5.</p>
-    <p>My academic work includes leading a team developing a fish sorting and grading system, building a three-joint robotic manipulator, and implementing PD control on a line-following robot. I am seeking opportunities in robotics, manufacturing, automation, and R&amp;D where I can contribute to design, integration, and testing.</p>
+    <p>I am Mohammed Fawaz, a Robotics and Automation Engineering undergraduate who enjoys understanding how machines work and finding ways to make them work better. I am drawn to engineering because it gives me the opportunity to turn an idea into something I can build, test, and improve.</p>
+    <p>My strengths are mechanical design and bringing hardware and software together. I enjoy working through practical problems, whether that means revising a design, finding the cause of a fault, or helping a team get a prototype working. Building and testing systems has taught me to pay attention to the small details that affect the result.</p>
+    <p>I am particularly interested in robotics and automation that make everyday work easier and more reliable. I want to develop as an engineer in a team where I can contribute to real products, learn from experienced people, and take on greater responsibility as my skills grow.</p>
+    <a class="project-link" href="/projects">Explore my projects →</a>
   </section>
 
   <section class="about" aria-labelledby="education-heading">
@@ -20,17 +20,6 @@ import Layout from '../layouts/Layout.astro';
     <p><strong>Bachelor of Engineering in Robotics &amp; Automation</strong><br />Sahyadri College of Engineering and Management<br />August 2022 – October 2026 (expected)<br />Cumulative GPA: 3.5/4</p>
   </section>
 
-  <section class="about" aria-labelledby="skills-heading">
-    <h2 id="skills-heading">Technical Skills</h2>
-    <dl>
-      <div><dt>Mechanical and hardware</dt><dd>SolidWorks, Fusion 360, Onshape, Arduino, Raspberry Pi, and NVIDIA Jetson.</dd></div>
-      <div><dt>Programming and systems</dt><dd>Python, C++, Linux, and Git.</dd></div>
-      <div><dt>Robotics and simulation</dt><dd>ROS 2, Gazebo, CoppeliaSim, MATLAB, and RoboAnalyzer.</dd></div>
-      <div><dt>Computer vision</dt><dd>OpenCV, YOLOv8, YOLOv10, Roboflow, and TensorRT.</dd></div>
-      <div><dt>Additional tools</dt><dd>LangChain, n8n, and PLC.</dd></div>
-    </dl>
-    <a class="project-link" href="/projects">View engineering projects →</a>
-  </section>
 
   <section class="about" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Contact</h2>
@@ -49,12 +38,7 @@ import Layout from '../layouts/Layout.astro';
   h2 { font-family: var(--font-mono); font-size: 1.1rem; margin: 0 0 1.25rem; }
   .about p { margin: 0 0 1rem; }
   .about p:last-child { margin-bottom: 0; }
-  dl { margin: 0; }
-  dl div { display: grid; grid-template-columns: minmax(0, 170px) minmax(0, 1fr); gap: 1rem; padding: 1rem 0; border-top: 1px dashed var(--line); }
-  dt { font-weight: 600; color: var(--accent); }
-  dd { margin: 0; }
   .project-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; color: var(--line-bright); text-underline-offset: 4px; }
   .project-link:hover { color: var(--accent); }
   .project-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  @media (max-width: 600px) { dl div { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; } }
 </style>
