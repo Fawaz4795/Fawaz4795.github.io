@@ -1,11 +1,84 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+
+const certificates = [
+  {
+    slug: 'wheeled-mobile-robots',
+    title: 'Wheeled Mobile Robots',
+    issuer: 'NPTEL · IIT Madras',
+    date: 'January–March 2026',
+    detail: '8-week course · Elite · Score: 62%',
+    description: 'Completed an eight-week course focused on wheeled mobile robots, adding formal robotics study to my engineering portfolio. Earned NPTEL Elite certification through online assignments and a proctored examination.',
+    verify: null,
+  },
+  {
+    slug: 'computer-vision-tensorflow',
+    title: 'Introduction to Computer Vision with TensorFlow',
+    issuer: 'Google Cloud · Coursera',
+    date: 'April 22, 2025',
+    detail: 'Project certificate',
+    description: 'Completed an introductory computer vision project using TensorFlow, authorized by Google Cloud and offered through Coursera. This training complements my interest in AI applications within robotics and automation.',
+    verify: 'https://coursera.org/verify/GPJ9J9JYPJJG',
+  },
+  {
+    slug: 'jobready-employability-skills',
+    title: 'JobReady Employability Skills',
+    issuer: 'Wadhwani Foundation',
+    date: 'February 27, 2025',
+    detail: '123 hours · Certificate of completion',
+    description: 'Completed 123 hours of JobReady Employability Skills training through Wadhwani Foundation while studying at Sahyadri College of Engineering & Management. The programme supports workplace readiness alongside my technical engineering education.',
+    verify: null,
+  },
+];
 ---
+
 <Layout title="Certificates — Mohammed Fawaz">
   <h1 class="section-title">CERTIFICATES</h1>
-  <p style="color: var(--line);">Coming soon — send me your certificate names/issuers and I'll build this the same way as Projects.</p>
+  <p class="intro">Training and certifications in robotics, computer vision, and workplace readiness.</p>
+  <div class="certificates">
+    {certificates.map((certificate) => (
+      <article class="certificate" aria-labelledby={certificate.slug}>
+        <div class="content">
+          <p class="issuer">{certificate.issuer}</p>
+          <h2 id={certificate.slug}>{certificate.title}</h2>
+          <p class="date">{certificate.date}</p>
+          <p class="detail">{certificate.detail}</p>
+          <p class="description">{certificate.description}</p>
+          <div class="actions">
+            <a href={`/certificates/${certificate.slug}.pdf`} target="_blank" rel="noopener noreferrer">View PDF ↗<span class="sr-only"> (opens in a new tab)</span></a>
+            <a href={`/certificates/${certificate.slug}.pdf`} download>Download PDF ↓</a>
+            {certificate.verify && <a href={certificate.verify} target="_blank" rel="noopener noreferrer">Verify ↗<span class="sr-only"> (opens in a new tab)</span></a>}
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
 </Layout>
 
 <style>
-  .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 2rem; }
+  .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 1rem; }
+  .intro { color: var(--line); line-height: 1.6; margin-bottom: 2rem; }
+  .certificates { display: grid; gap: 1.5rem; }
+  .certificate { display: grid; grid-template-columns: minmax(0, 1fr); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--blueprint-bg); transition: transform 0.25s ease, border-color 0.25s ease; }
+  .certificate:hover, .certificate:focus-within { border-color: var(--accent); }
+  .content { min-width: 0; padding: 1.5rem; }
+  .issuer { color: var(--accent); font-family: var(--font-mono); font-size: 0.8rem; margin: 0 0 0.75rem; }
+  h2 { font-size: 1.25rem; line-height: 1.35; margin: 0 0 0.75rem; }
+  .date { color: var(--line); font-size: 0.9rem; margin: 0 0 0.5rem; }
+  .detail { font-size: 0.85rem; font-weight: 600; margin: 0 0 1rem; }
+  .description { line-height: 1.65; margin: 0 0 1.25rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .actions a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.6rem 0.8rem; border: 1px solid var(--line); border-radius: 6px; color: var(--line-bright); text-decoration: none; font-size: 0.85rem; }
+  .actions a:hover { border-color: var(--accent); background: rgba(255, 138, 61, 0.15); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  @media (hover: hover) { .certificate:hover { transform: translateY(-4px); } }
+  @media (max-width: 600px) {
+    .certificate { grid-template-columns: minmax(0, 1fr); }
+    .content { padding: 1.1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .certificate { transition: none; }
+    .certificate:hover { transform: none; }
+  }
 </style>
