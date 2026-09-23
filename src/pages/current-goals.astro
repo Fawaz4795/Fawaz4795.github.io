@@ -1,15 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Current Goals — Mohammed Fawaz">
-  <h1 class="section-title">CURRENT GOALS</h1>
-  <p style="color: var(--line-bright); line-height: 1.7;">
-    Seeking opportunities in robotics, manufacturing, automation, and research and development.
-    My focus is on mechanical design, embedded systems, and computer vision, with an interest
-    in building and testing integrated robotic systems.
-  </p>
+<Layout title="Current Projects — Mohammed Fawaz">
+  <h1 class="section-title">CURRENT PROJECTS</h1>
+  <p class="intro">What I am currently working on in engineering automation and robotics.</p>
+
+  <section aria-labelledby="revit-project">
+    <p class="status">IN DEVELOPMENT</p>
+    <h2 id="revit-project">Automating Revit Family Creation with n8n</h2>
+    <p>
+      Developing an n8n workflow to automate the creation of Revit families for BIM.
+      The aim is to turn uploaded equipment drawings into structured dimensions and
+      parameters, then use that information to generate scripts for creating families in Revit.
+    </p>
+    <p>
+      My current focus is making the workflow adaptable to different drawings and
+      editable parameters, such as material thickness and overall dimensions, to reduce
+      repetitive modelling and manual script changes.
+    </p>
+    <p class="focus">n8n · BIM · Revit · Python · Workflow Automation</p>
+  </section>
+
+  <section aria-labelledby="biped-project">
+    <p class="status">IN DEVELOPMENT</p>
+    <h2 id="biped-project">Bipedal Robot with a Balancing Tail</h2>
+    <p>
+      Developing a bipedal robot concept with a movable tail to assist balance.
+      The project explores how tail movement could help control the robot's posture
+      and stability while standing and walking.
+    </p>
+    <p>
+      The planned work covers mechanical design, actuator selection, and balance
+      control, followed by simulation and prototype testing to evaluate the tail's
+      contribution to stability.
+    </p>
+    <p class="focus">Robotics · Mechanical Design · Balance Control · Prototyping</p>
+  </section>
 </Layout>
 
 <style>
-  .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 2rem; }
+  .section-title { font-family: var(--font-mono); letter-spacing: 2px; margin-bottom: 1rem; }
+  .intro, section p { color: var(--line-bright); line-height: 1.7; }
+  .intro { margin-bottom: 2rem; }
+  section { border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1rem, 3vw, 1.75rem); margin-bottom: 1.5rem; }
+  h2 { color: var(--line-bright); font-size: 1.25rem; line-height: 1.4; margin: 0 0 1rem; }
+  .status { font-family: var(--font-mono); color: var(--accent); font-size: 0.75rem; letter-spacing: 1px; margin: 0 0 0.75rem; }
+  .focus { font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0; }
 </style>
