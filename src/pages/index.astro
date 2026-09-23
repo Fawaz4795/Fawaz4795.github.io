@@ -7,7 +7,8 @@ import Layout from '../layouts/Layout.astro';
     <p>Robotics and Automation Engineering</p>
   </header>
 
-  <section class="about" aria-labelledby="about-heading">
+  <section class="about about-profile" aria-labelledby="about-heading">
+    <img class="portrait" src="/images/fawaz-portrait.jpg" alt="Portrait of Mohammed Fawaz" width="800" height="1029" decoding="async" />
     <h2 id="about-heading">About Me</h2>
     <p>I am Mohammed Fawaz, a Robotics and Automation Engineering undergraduate who enjoys understanding how machines work and finding ways to make them work better. I am drawn to engineering because it gives me the opportunity to turn an idea into something I can build, test, and improve.</p>
     <p>My strengths are mechanical design and bringing hardware and software together. I enjoy working through practical problems, whether that means revising a design, finding the cause of a fault, or helping a team get a prototype working. Building and testing systems has taught me to pay attention to the small details that affect the result.</p>
@@ -34,6 +35,11 @@ import Layout from '../layouts/Layout.astro';
   .masthead h1 { font-family: var(--font-mono); font-size: 1.8rem; margin: 0 0 0.3rem; letter-spacing: 1px; }
   .masthead p { margin: 0; color: var(--line); }
   .about { border: 1.5px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.75rem; line-height: 1.75; margin-bottom: 2rem; }
+  .about-profile { display: flow-root; }
+  .portrait { float: right; width: 240px; max-width: 100%; height: auto; margin: 0 0 1.25rem 1.75rem; border-radius: 20px; }
+  @media (max-width: 600px) {
+    .portrait { float: none; display: block; width: min(100%, 280px); margin: 0 auto 1.5rem; }
+  }
   h2 { font-family: var(--font-mono); font-size: 1.1rem; margin: 0 0 1.25rem; }
   .about p { margin: 0 0 1rem; }
   .about p:last-child { margin-bottom: 0; }
