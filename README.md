@@ -1,43 +1,70 @@
-# Astro Starter Kit: Minimal
+# Mohammed Fawaz — Robotics & Automation Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal engineering portfolio covering mechanical design, robotics, embedded systems, computer vision, and AI integration.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**[View the portfolio](https://fawaz4795.github.io/)**
 
-## 🚀 Project Structure
+## Current focus
 
-Inside of your Astro project, you'll see the following folders and files:
+- Bringing mechanical design, hardware, and software together in practical robotic prototypes.
+- Computer vision, conversational AI, and embedded control.
+- Developing a bipedal robot concept with a movable balancing tail, with mechanical design, actuator selection, balance control, simulation, and prototype testing planned.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Featured projects
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **[Jenny Bot — Humanoid Desktop Animatronic (V2)](https://fawaz4795.github.io/projects/humanoid-animatronic-v2/)** — Featured first in the project gallery. Combines face tracking, speech-to-text, Groq-based conversation and function calling, and Python servo control on Raspberry Pi / Jetson hardware.
+- **[ArecaSort V1](https://fawaz4795.github.io/projects/arecasort-v1/)** — Arecanut grading with YOLOv10 and TensorRT, alongside a mechanical sorting test model.
+- **[Automated Fish Sorting & Grading System](https://fawaz4795.github.io/projects/fish-sorting-grading/)** — SolidWorks design, YOLOv8 species identification and defect detection, and Raspberry Pi integration.
+- **[Autonomous Robot Navigation](https://fawaz4795.github.io/projects/autonomous-nav-lidar-gazebo/)** — LiDAR mapping, AMCL localisation, and path planning in ROS and Gazebo.
+- **[AI Agent Chatbot via n8n](https://fawaz4795.github.io/projects/ai-agent-chatbot-n8n/)** — A conversational workflow with session memory and an external calculator API.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+[Explore all projects](https://fawaz4795.github.io/projects/) · [Balancing-tail biped: in development](https://fawaz4795.github.io/current-goals/)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Technologies
 
-## 🧞 Commands
+- **Robotics and embedded systems:** Python, C/C++, Arduino Uno, Raspberry Pi, NVIDIA Jetson Orin Nano Super, PCA9685 / I2C, ROS, Gazebo, CoppeliaSim, Lua.
+- **AI and automation:** YOLOv8 / YOLOv10, TensorRT, Roboflow, speech-to-text, Groq API, function calling, n8n, webhooks.
+- **Design and analysis:** SolidWorks, Fusion 360, MATLAB, RoboAnalyzer, ANSYS Workbench.
+- **Portfolio website:** Astro, TypeScript project data, HTML/CSS, GitHub Actions, GitHub Pages.
 
-All commands are run from the root of the project, from a terminal:
+## Local setup
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Requires **Node.js >=22.12.0**, npm, and Git. Run these steps in a terminal:
 
-## 👀 Want to learn more?
+1. Clone the repository and enter its directory:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+   ```sh
+   git clone https://github.com/Fawaz4795/Fawaz4795.github.io.git
+   cd Fawaz4795.github.io
+   ```
+
+2. Install dependencies:
+
+   ```sh
+   npm install
+   ```
+
+3. Start the development server in background mode:
+
+   ```sh
+   npm run dev -- --background
+   ```
+
+   Open `http://localhost:4321`. Manage the server with `npm run dev -- status`, `npm run dev -- logs`, and `npm run dev -- stop`.
+
+4. Build and preview the production site:
+
+   ```sh
+   npm run build
+   npm run preview
+   ```
+
+   The build output is written to `dist/`; open the local URL printed by the preview command.
+
+## Content and deployment
+
+- `src/pages/index.astro` — About Me and responsive portrait.
+- `src/data/projects.ts` — Project descriptions, technologies, and galleries.
+- `src/pages/current-goals.astro` — Current biped project.
+- `public/` — Static assets, including project images.
+- `.github/workflows/deploy.yml` — Builds and deploys to GitHub Pages on pushes to `main`.
